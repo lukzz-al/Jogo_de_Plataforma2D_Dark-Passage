@@ -1,0 +1,145 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/TelaInicial/2.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Girassol-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Sprites/TelaInicial/1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/TelaInicial/4.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/TelaInicial/3.png" type="Texture" id=6]
+[ext_resource path="res://Sons/musica_tela_inicial.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Fonts/espada.png" type="Texture" id=8]
+[ext_resource path="res://Sons/SFX/Buttons_Houvered.wav" type="AudioStream" id=9]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 512, 512 )
+margin_right = 500.0
+draw_center = false
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 512, 512 )
+margin_right = 500.0
+draw_center = false
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 512, 512 )
+margin_right = 500.0
+draw_center = false
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "menu",
+"speed": 5.0
+} ]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.89609
+margin_top = 1.94804
+margin_right = -520.104
+margin_bottom = -121.052
+rect_scale = Vector2( 2.04, 1.24 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 165.378
+margin_top = 211.785
+margin_right = 365.378
+margin_bottom = 351.785
+rect_scale = Vector2( 0.766595, 0.875114 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 199.0
+margin_bottom = 140.0
+alignment = 1
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 1.0
+margin_right = 199.0
+margin_bottom = 44.0
+custom_styles/focus = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Start"
+flat = true
+
+[node name="Som_menu" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/Start"]
+stream = ExtResource( 9 )
+volume_db = -15.0
+
+[node name="Option" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 199.0
+margin_bottom = 91.0
+custom_styles/focus = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+text = "Options"
+flat = true
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 95.0
+margin_right = 199.0
+margin_bottom = 138.0
+custom_styles/focus = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "Quit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="BG" type="AnimatedSprite" parent="ParallaxBackground"]
+position = Vector2( 512.331, 299.131 )
+scale = Vector2( 2.2646, 1.3958 )
+frames = SubResource( 7 )
+animation = "menu"
+frame = 2
+speed_scale = 3.0
+playing = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0
+autoplay = true
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Start" to="." method="_on_Start_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/Start" to="." method="_on_Start_focus_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Option" to="." method="_on_Option_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/Option" to="." method="_on_Option_focus_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Option" to="." method="_on_Option_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_Quit_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_Quit_focus_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

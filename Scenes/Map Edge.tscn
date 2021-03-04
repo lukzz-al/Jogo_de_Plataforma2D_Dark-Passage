@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 359.012, 10 )
+
+[node name="Map Edge" type="Area2D"]
+position = Vector2( 6524.38, 329.433 )
+scale = Vector2( 10.0244, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 8 )

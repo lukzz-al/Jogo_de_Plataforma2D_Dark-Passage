@@ -1,0 +1,271 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Scripts/DeadEye.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Sprites Jogo/Dead Eye/eye monster idle.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 27.8467
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 180.036
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 313.231
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 320, 320 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 640, 0, 320, 320 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 960, 0, 320, 320 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 320, 0, 320, 320 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=9]
+resource_name = "dead"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "hitted"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.917647, 0.101961, 0.101961, 1 ), Color( 1, 1, 1, 1 ), Color( 0.92549, 0.027451, 0.027451, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "idle"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "dead"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "hitted"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachine" id=18]
+states/dead/node = SubResource( 12 )
+states/dead/position = Vector2( 621, 81 )
+states/hitted/node = SubResource( 13 )
+states/hitted/position = Vector2( 462, 81 )
+states/idle/node = SubResource( 14 )
+states/idle/position = Vector2( 290, 81 )
+transitions = [ "idle", "hitted", SubResource( 15 ), "hitted", "idle", SubResource( 16 ), "hitted", "dead", SubResource( 17 ) ]
+start_node = "idle"
+end_node = "dead"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=19]
+
+[node name="Dead_Eye" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+position = Vector2( -16.15, 4.75 )
+scale = Vector2( 2.04, 2.36 )
+shape = SubResource( 1 )
+
+[node name="Proximity_Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Proximity_Range"]
+shape = SubResource( 2 )
+
+[node name="Vision_range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision_range"]
+modulate = Color( 0, 0, 0, 1 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -15.8229, 3.51617 )
+frames = SubResource( 8 )
+animation = "idle"
+speed_scale = 2.0
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/dead = SubResource( 9 )
+anims/hitted = SubResource( 10 )
+anims/idle = SubResource( 11 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 18 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 19 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -20.5337, -4.62008 )
+
+[node name="ATK_Cooldown" type="Timer" parent="."]
+wait_time = 2.5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+[connection signal="body_entered" from="Proximity_Range" to="." method="_on_Proximity_Range_body_entered"]
+[connection signal="body_exited" from="Proximity_Range" to="." method="_on_Proximity_Range_body_exited"]
+[connection signal="body_entered" from="Vision_range" to="." method="_on_Vision_range_body_entered"]
+[connection signal="body_exited" from="Vision_range" to="." method="_on_Vision_range_body_exited"]
+[connection signal="timeout" from="ATK_Cooldown" to="." method="_on_ATK_Cooldown_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,121 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://Tilemap/nGround.tres" type="TileSet" id=1]
+[ext_resource path="res://Tilemap/Magic-Cliffs-Environment/PNG/far-grounds.png" type="Texture" id=2]
+[ext_resource path="res://Tilemap/Magic-Cliffs-Environment/PNG/sky.png" type="Texture" id=3]
+[ext_resource path="res://Tilemap/Sprites/Background/castle_bg.png" type="Texture" id=4]
+[ext_resource path="res://Tilemap/Sprites/Background/cloud.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/walk_3.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/walk_4.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player/walk_6.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/walk_5.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Player/walk_2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Player/walk_1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (18).png" type="Texture" id=12]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (12).png" type="Texture" id=13]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (19).png" type="Texture" id=14]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (13).png" type="Texture" id=15]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (14).png" type="Texture" id=16]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (20).png" type="Texture" id=17]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (9).png" type="Texture" id=18]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (5).png" type="Texture" id=19]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (10).png" type="Texture" id=20]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (3).png" type="Texture" id=21]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (16).png" type="Texture" id=22]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (4).png" type="Texture" id=23]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (7).png" type="Texture" id=24]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (15).png" type="Texture" id=25]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (22).png" type="Texture" id=26]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (11).png" type="Texture" id=27]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (6).png" type="Texture" id=28]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (1).png" type="Texture" id=29]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (21).png" type="Texture" id=30]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (8).png" type="Texture" id=31]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (17).png" type="Texture" id=32]
+[ext_resource path="res://Sprites/HUD/Rain/Rain (2).png" type="Texture" id=33]
+[ext_resource path="res://Cinematic/Credits.webmhd.webm" type="VideoStream" id=34]
+[ext_resource path="res://Sons/SFX/rain.ogg" type="AudioStream" id=35]
+[ext_resource path="res://Sons/Credits.ogg" type="AudioStream" id=36]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 29 ), ExtResource( 33 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 27 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 25 ), ExtResource( 22 ), ExtResource( 32 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 30 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[node name="World" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="sky" type="Sprite" parent="CanvasLayer/ParallaxBackground"]
+position = Vector2( 514.366, 302.261 )
+scale = Vector2( 9.12733, 1.9659 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/ParallaxBackground"]
+
+[node name="castle_bg" type="Sprite" parent="CanvasLayer/ParallaxBackground/Sprite"]
+position = Vector2( 850.968, 418.345 )
+scale = Vector2( 0.466985, 0.548189 )
+texture = ExtResource( 4 )
+
+[node name="far-grounds" type="Sprite" parent="CanvasLayer/ParallaxBackground/Sprite"]
+position = Vector2( 511.052, 391.043 )
+scale = Vector2( 1.69223, 2.90142 )
+texture = ExtResource( 2 )
+
+[node name="rain" type="AnimatedSprite" parent="CanvasLayer/ParallaxBackground"]
+position = Vector2( 518.563, 302.243 )
+scale = Vector2( 2.17793, 1.26389 )
+frames = SubResource( 1 )
+frame = 9
+playing = true
+
+[node name="TileMap" type="TileMap" parent="CanvasLayer"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 15, 15 )
+format = 1
+tile_data = PoolIntArray( 2359296, 20, 0, 2359297, 21, 0, 2359298, 21, 0, 2359299, 21, 0, 2359300, 21, 0, 2359301, 21, 0, 2359302, 21, 0, 2359303, 21, 0, 2359304, 21, 0, 2359305, 21, 0, 2359306, 21, 0, 2359307, 21, 0, 2359308, 21, 0, 2359309, 21, 0, 2359310, 21, 0, 2359311, 21, 0, 2359312, 21, 0, 2359313, 21, 0, 2359314, 21, 0, 2359315, 21, 0, 2359316, 21, 0, 2359317, 21, 0, 2359318, 21, 0, 2359319, 21, 0, 2359320, 21, 0, 2359321, 21, 0, 2359322, 21, 0, 2359323, 21, 0, 2359324, 21, 0, 2359325, 21, 0, 2359326, 21, 0, 2359327, 21, 0, 2359328, 21, 0, 2359329, 21, 0, 2359330, 21, 0, 2359331, 21, 0, 2359332, 21, 0, 2359333, 21, 0, 2359334, 21, 0, 2359335, 21, 0, 2359336, 21, 0, 2359337, 21, 0, 2359338, 21, 0, 2359339, 21, 0, 2359340, 21, 0, 2359341, 21, 0, 2359342, 21, 0, 2359343, 21, 0, 2359344, 21, 0, 2359345, 21, 0, 2359346, 21, 0, 2359347, 21, 0, 2359348, 21, 0, 2359349, 21, 0, 2359350, 21, 0, 2359351, 21, 0, 2359352, 21, 0, 2359353, 21, 0, 2359354, 21, 0, 2359355, 21, 0, 2359356, 21, 0, 2359357, 21, 0, 2359358, 21, 0, 2359359, 21, 0, 2359360, 21, 0, 2359361, 21, 0, 2359362, 21, 0, 2359363, 21, 0, 2359364, 21, 0, 2424832, 23, 0, 2424833, 23, 0, 2424834, 23, 0, 2424835, 23, 0, 2424836, 23, 0, 2424837, 23, 0, 2424838, 23, 0, 2424839, 23, 0, 2424840, 23, 0, 2424841, 23, 0, 2424842, 23, 0, 2424843, 23, 0, 2424844, 23, 0, 2424845, 23, 0, 2424846, 23, 0, 2424847, 23, 0, 2424848, 23, 0, 2424849, 23, 0, 2424850, 23, 0, 2424851, 23, 0, 2424852, 23, 0, 2424853, 23, 0, 2424854, 23, 0, 2424855, 23, 0, 2424856, 23, 0, 2424857, 23, 0, 2424858, 23, 0, 2424859, 23, 0, 2424860, 23, 0, 2424861, 23, 0, 2424862, 23, 0, 2424863, 23, 0, 2424864, 23, 0, 2424865, 23, 0, 2424866, 23, 0, 2424867, 23, 0, 2424868, 23, 0, 2424869, 23, 0, 2424870, 23, 0, 2424871, 23, 0, 2424872, 23, 0, 2424873, 23, 0, 2424874, 23, 0, 2424875, 23, 0, 2424876, 23, 0, 2424877, 23, 0, 2424878, 23, 0, 2424879, 23, 0, 2424880, 23, 0, 2424881, 23, 0, 2424882, 23, 0, 2424883, 23, 0, 2424884, 23, 0, 2424885, 23, 0, 2424886, 23, 0, 2424887, 23, 0, 2424888, 23, 0, 2424889, 23, 0, 2424890, 23, 0, 2424891, 23, 0, 2424892, 23, 0, 2424893, 23, 0, 2424894, 23, 0, 2424895, 23, 0, 2424896, 23, 0, 2424897, 23, 0, 2424898, 23, 0, 2424899, 23, 0, 2424900, 23, 0, 2490368, 23, 0, 2490369, 23, 0, 2490370, 23, 0, 2490371, 23, 0, 2490372, 23, 0, 2490373, 23, 0, 2490374, 23, 0, 2490375, 23, 0, 2490376, 23, 0, 2490377, 23, 0, 2490378, 23, 0, 2490379, 23, 0, 2490380, 23, 0, 2490381, 23, 0, 2490382, 23, 0, 2490383, 23, 0, 2490384, 23, 0, 2490385, 23, 0, 2490386, 23, 0, 2490387, 23, 0, 2490388, 23, 0, 2490389, 23, 0, 2490390, 23, 0, 2490391, 23, 0, 2490392, 23, 0, 2490393, 23, 0, 2490394, 23, 0, 2490395, 23, 0, 2490396, 23, 0, 2490397, 23, 0, 2490398, 23, 0, 2490399, 23, 0, 2490400, 23, 0, 2490401, 23, 0, 2490402, 23, 0, 2490403, 23, 0, 2490404, 23, 0, 2490405, 23, 0, 2490406, 23, 0, 2490407, 23, 0, 2490408, 23, 0, 2490409, 23, 0, 2490410, 23, 0, 2490411, 23, 0, 2490412, 23, 0, 2490413, 23, 0, 2490414, 23, 0, 2490415, 23, 0, 2490416, 23, 0, 2490417, 23, 0, 2490418, 23, 0, 2490419, 23, 0, 2490420, 23, 0, 2490421, 23, 0, 2490422, 23, 0, 2490423, 23, 0, 2490424, 23, 0, 2490425, 23, 0, 2490426, 23, 0, 2490427, 23, 0, 2490428, 23, 0, 2490429, 23, 0, 2490430, 23, 0, 2490431, 23, 0, 2490432, 23, 0, 2490433, 23, 0, 2490434, 23, 0, 2490435, 23, 0, 2490436, 23, 0, 2555904, 23, 0, 2555905, 23, 0, 2555906, 23, 0, 2555907, 23, 0, 2555908, 23, 0, 2555909, 23, 0, 2555910, 23, 0, 2555911, 23, 0, 2555912, 23, 0, 2555913, 23, 0, 2555914, 23, 0, 2555915, 23, 0, 2555916, 23, 0, 2555917, 23, 0, 2555918, 23, 0, 2555919, 23, 0, 2555920, 23, 0, 2555921, 23, 0, 2555922, 23, 0, 2555923, 23, 0, 2555924, 23, 0, 2555925, 23, 0, 2555926, 23, 0, 2555927, 23, 0, 2555928, 23, 0, 2555929, 23, 0, 2555930, 23, 0, 2555931, 23, 0, 2555932, 23, 0, 2555933, 23, 0, 2555934, 23, 0, 2555935, 23, 0, 2555936, 23, 0, 2555937, 23, 0, 2555938, 23, 0, 2555939, 23, 0, 2555940, 23, 0, 2555941, 23, 0, 2555942, 23, 0, 2555943, 23, 0, 2555944, 23, 0, 2555945, 23, 0, 2555946, 23, 0, 2555947, 23, 0, 2555948, 23, 0, 2555949, 23, 0, 2555950, 23, 0, 2555951, 23, 0, 2555952, 23, 0, 2555953, 23, 0, 2555954, 23, 0, 2555955, 23, 0, 2555956, 23, 0, 2555957, 23, 0, 2555958, 23, 0, 2555959, 23, 0, 2555960, 23, 0, 2555961, 23, 0, 2555962, 23, 0, 2555963, 23, 0, 2555964, 23, 0, 2555965, 23, 0, 2555966, 23, 0, 2555967, 23, 0, 2555968, 23, 0, 2555969, 23, 0, 2555970, 23, 0, 2555971, 23, 0 )
+
+[node name="player" type="AnimatedSprite" parent="CanvasLayer"]
+position = Vector2( 858.013, 523.544 )
+frames = SubResource( 2 )
+playing = true
+flip_h = true
+
+[node name="VideoPlayer" type="VideoPlayer" parent="CanvasLayer"]
+margin_left = 205.639
+margin_top = 90.0633
+margin_right = 819.639
+margin_bottom = 384.063
+stream = ExtResource( 34 )
+autoplay = true
+buffering_msec = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 35 )
+volume_db = -25.0
+autoplay = true
+
+[node name="cloud" type="Sprite" parent="."]
+position = Vector2( 455.639, 87.9095 )
+texture = ExtResource( 5 )
+
+[node name="ST" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 36 )
+autoplay = true

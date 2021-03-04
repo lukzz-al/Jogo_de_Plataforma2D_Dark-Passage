@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Tilemap/Sprites/Objects/spikes-png.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Spikes.gd" type="Script" id=2]
+
+[node name="Spikes" type="Sprite"]
+scale = Vector2( 0.066357, 0.0944953 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D/Area2D"]
+rotation = -3.14159
+scale = Vector2( 45.5147, -21.7999 )
+polygon = PoolVector2Array( -0.88745, 9.53878, 8.18195, 9.27526, 5.28086, -6.15858, 2.46262, 4.29266, 0.0588656, -11.2627, -2.67649, 4.29263, -5.32891, -8.10305, -8.5616, 9.51822 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -31.6915, -66.7637 )
+scale = Vector2( 46.587, 27.5343 )
+polygon = PoolVector2Array( 1.3178, 9.55782, -7.15935, 9.68217, -4.75226, -2.87678, -2.44982, 6.20048, 0.585205, -4.36893, 3.37612, 6.11204, 5.71335, -3.37417, 8.63726, 9.94498 )
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="." method="_on_Area2D_body_entered"]
